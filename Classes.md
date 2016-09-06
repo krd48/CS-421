@@ -1,6 +1,7 @@
 Classes
 =======
 
+Classes organize realated data and functions.
 Classes are member variables (or just members) and member functions (or just methods).
 Collectively, members and methods are just referred to as members.
 

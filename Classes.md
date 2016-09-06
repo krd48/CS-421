@@ -76,7 +76,7 @@ class Circle
 {
 	private double _radius
 
-	public double Radius {
+	public double Radius
 	{
 		get { return _radius; } 
 	}

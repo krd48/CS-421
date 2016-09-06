@@ -20,8 +20,9 @@ Members
 -------
 
 Members should be used to represent the internal state of an object.
-Members should always be private.
+Members should always be private and mutable (i.e. they can change).
 Members should only be modified by the methods of the class.
+If a member variable doesn't change (i.e. it's invariant), don't make it a member.  Use a property instead.
 
 
 Methods
@@ -68,7 +69,7 @@ Although in most cases you can omit the this reference when you access members.
 Properties
 ----------
 
-Properties can be used to provide access member variables.
+Properties can be used to provide access member variables (they're often referred to as getters and setters).
 Properties can exectute code i.e. do calculations.
 
 ```
@@ -79,6 +80,7 @@ class Circle
 	public double Radius
 	{
 		get { return _radius; } 
+		set { _radius = value; }
 	}
 	
 	public double Circumfrence 
@@ -86,11 +88,48 @@ class Circle
 		get { return 2 * _radius * Math.PI; }
 	}
 
-	public double Circumfrence 
+	public double Area 
 	{
 		get { return _radius * _radius * Math.PI; }
 	}
 }
 ```
+
+Notice the implicit value keyword in the Radius setter.
+
+Properties are actually just methods.  The properties on the Circle class are actually compiled as 
+
+```
+class Circle 
+{
+	private double _radius
+
+	public double get_Radius()
+	{
+		get { return _radius; } 
+	}
+	
+	public void set_Radius(double value)
+	{
+		_radius = value;
+	}
+	
+	public double get_Circumfrence()
+	{
+		return 2 * _radius * Math.PI;
+	}
+
+	public double get_Area() 
+	{
+		return _radius * _radius * Math.PI; 
+	}
+}
+```
+
+Interface
+----------
+
+The collection of public Members of a class is called its interface.
+
 
 

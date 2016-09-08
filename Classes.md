@@ -8,6 +8,7 @@ Collectively, members and methods are just referred to as members.
 Objects are instances of a class.
 Each instance of a class has it's own copy of the class's members.
 
+
 Visibilty
 ---------
 
@@ -15,7 +16,7 @@ Visibilty is how external clients can view a class.  Members and Methods can be
 *	Private - only methods of the same class can access the member (or method).
 	(Different instances of the same class may access the private members of 
 *	Public - everyone can access the member or call the method.
-
+*	Internal - Like public but only within the scope of the assembly where the class is defined.
 
 Members
 -------
@@ -24,7 +25,7 @@ Members should be used to represent the internal state of an object.
 Members should always be private and mutable (i.e. they can change).
 Members should only be modified by the methods of the class.
 If a member variable doesn't change (i.e. it's invariant), don't make it a member.  Use a property instead.
-
+Invariant memberse should be initialized at the time of construction.
 
 Methods
 -------
@@ -127,8 +128,28 @@ class Circle
 }
 ```
 
+
+Constructors
+------------
+
+Constructors are special member functions that are executed when an object is created.
+There are two types of constructors: default constructors and non-default constructors.
+
+The default construct has no parameters.  Non-default constructors may have 1 or more parameter.
+
+Do not write default constructors that ONLY initialize members.  Instead use field initializers.
+
+Do not construct incomplete objects.  In otherwords, throw an exception if something goes wrong.
+
+
+Destructors
+-----------
+
+In general, do not write a destructor for your class.
+
+
 Interface
-----------
+---------
 
 The collection of public Members of a class is called its interface.
 

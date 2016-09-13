@@ -45,6 +45,8 @@ Conceptually, you should think of exceptions in 3 categories:
 2. Logic Errors - These are bugs in your program.  These should also result in the termination of your pogram, because you can't fix your bugs when your program is running.
 3. Runtime Errors - These are errors that occur during the normal execution of your program, like FileNotFound or SocketTimeout.  These should be caught and handled early.
 
+Unfortunately, there is no convenient way in .NET to distinguish between the three different categories.
+
 When To Throw?
 -------------------
 

@@ -41,8 +41,7 @@ There are lots of different types of exceptions - maybe 200 or so in the .NET Fr
 
 Conceptually, you should think of exceptions in 3 categories:
 
-1. Fatal Errors - These are errors over which you have no control, and which should result in the termination of your program.
-	There are only a handful of exceptions that fall into this category.  OutOfMemory and StackOverflow are two of them.  They cannot be properly handled.
+1. Fatal Errors - These are errors over which you have no control, and which should result in the termination of your program. There are only a handful of exceptions that fall into this category.  OutOfMemory and StackOverflow are two of them.  They cannot be properly handled.
 2. Logic Errors - These are bugs in your program.  These should also result in the termination of your pogram, because you can't fix your bugs when the program is running.
 3. Runtime Erros - These are errors that occur during the normal execution of your program.  These should be caught and handled early.
 

@@ -3,153 +3,53 @@ using System.Text;
 
 class Laptop
 {
-    private string model;
-    private decimal price;
-    private string manufacturer;
-    private string processor;
-    private int ram;
-    private string graphicsCard;
-    private int hdd;
-    private string screen;
-
-    public Laptop(string model, decimal price)
-    {
-        this.Model = model;
-        this.Price = price;
-    }
-    public Laptop(string model, decimal price, Battery battery)
-    {
-        this.Model = model;
-        this.Price = price;
-        this.Batt = battery;
-    }
 
     public string Model
     {
-        get
-        {
-            return this.model;
-        }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException("The model cannot be empty!");
-            }
-            this.model = value;
-        }
+        get;
+        set;
     }
 
     public decimal Price
     {
-        get
-        {
-            return this.price;
-        }
-        set
-        {
-            if (value < 0)
-            {
-                throw new ArgumentOutOfRangeException("The price cannot be negative number!");
-            }
-            this.price = value;
-        }
+        get;
+        set;
     }
 
     public string Manufacturer
     {
-        get
-        {
-            return this.manufacturer;
-        }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException("The manufactuer cannot be empty!");
-            }
-            this.manufacturer = value;
-        }
+        get;
+        set;
     }
 
-    public string Processor
+    public Processor Processor
     {
-        get
-        {
-            return this.processor;
-        }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException("The processor cannot be empty!");
-            }
-            this.processor = value;
-        }
+        get;
+        set;
     }
 
-    public int RAM
+    public Memory RAM
     {
-        get
-        {
-            return this.ram;
-        }
-        set
-        {
-            if (value < 0)
-            {
-                throw new ArgumentException("The RAM cannot be negative number!");
-            }
-            this.ram = value;
-        }
+        get;
+        set;
     }
 
-    public string GraphicsCard
+    public Graphics GraphicsCard
     {
-        get
-        {
-            return this.graphicsCard;
-        }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException("The Graphics Card cannot be empty!");
-            }
-            this.graphicsCard = value;
-        }
+        get;
+        set;
     }
 
-    public int HDD
+    public HardDisk HDD
     {
-        get
-        {
-            return this.hdd;
-        }
-        set
-        {
-            if (value < 0)
-            {
-                throw new ArgumentException("The HDD cannot be negative number!");
-            }
-            this.hdd = value;
-        }
+        get;
+        set;
     }
 
-    public string Screen
+    public Monitor Screen
     {
-        get
-        {
-            return this.screen;
-        }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException("The Screen cannot be empty!");
-            }
-            this.screen = value;
-        }
+        get;
+        set;
     }
 
     public Battery Batt { get; set; }

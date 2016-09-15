@@ -1,10 +1,10 @@
 using System;
 using System.Text;
 
-class Laptop
+class Computer
 {
 
-    public string Model
+    public string ModelName
     {
         get;
         set;
@@ -16,7 +16,7 @@ class Laptop
         set;
     }
 
-    public string Manufacturer
+    public string ManufacturerName
     {
         get;
         set;
@@ -52,7 +52,7 @@ class Laptop
         set;
     }
 
-    public Battery Batt { get; set; }
+    public Battery Battery { get; set; }
 
 }
 

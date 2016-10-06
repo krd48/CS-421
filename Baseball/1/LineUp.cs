@@ -2,6 +2,10 @@
 //Created once, changed when needed
 class LineUp
 {
+    private Player[] order = new Player[9];
+    private int next = -1;
+
+    public Player Next() { return (++next) % 9; }
 
     public Player Batting1 { get; set; }
     public Player Batting2 { get; set; }

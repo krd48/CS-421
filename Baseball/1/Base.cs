@@ -1,7 +1,7 @@
 ﻿
 public class Base
 {
-    public bool Occupied
+    public Player Occupied
     {
         get;
         set;

@@ -62,7 +62,7 @@ public class JValue
         get 
         {
             if (Type != JType.Bool) throw new CastException();
-            return (boo)Value;
+            return (bool)Value;
         }
         set 
         {

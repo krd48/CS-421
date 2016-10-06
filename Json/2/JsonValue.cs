@@ -47,7 +47,7 @@ public class JValue
     public JValue(Dictionary<string, JsonValue> values)
     {
         Type = JType.Object;
-        Value = new JsonArray {Values = values};
+        Value = new JsonObject {Values = values};
     }
 
     public bool Null 
@@ -111,13 +111,13 @@ public class JValue
     {
         get 
         {
-            if (Type != JType.Dictionary) throw new CastException();
-            return ((JsonDictionary)Value).Values;
+            if (Type != JType.Object) throw new CastException();
+            return ((JsonObject)Value).Values;
         }
         set 
         {
-            Type = JType.Dicionary;
-            Value = new JsonDictionary { Values = value; }
+            Type = JType.Object;
+            Value = new JsonObject { Values = value; }
         }
     }
 

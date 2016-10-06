@@ -5,7 +5,7 @@ Homework 1
 Define the objects necessary to simulate a game of baseball.
 Hint: If you spend more than an hour on this, you're probably over thinking it.
 
-Homework 2
+Homework 2 (Due 10/13)
 ==========
 
 Override the ToString method for the JValue and JsonValue classes in the 

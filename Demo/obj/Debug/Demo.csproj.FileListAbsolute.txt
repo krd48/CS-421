@@ -4,3 +4,9 @@ C:\Dev\Teaching\Demo\Demo\bin\Debug\Demo.pdb
 C:\Dev\Teaching\Demo\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
 C:\Dev\Teaching\Demo\Demo\obj\Debug\Demo.exe
 C:\Dev\Teaching\Demo\Demo\obj\Debug\Demo.pdb
+C:\dev\Teaching\Fall 2016\CS-421\Demo\bin\Debug\Demo.exe.config
+C:\dev\Teaching\Fall 2016\CS-421\Demo\obj\Debug\Demo.exe
+C:\dev\Teaching\Fall 2016\CS-421\Demo\obj\Debug\Demo.pdb
+C:\dev\Teaching\Fall 2016\CS-421\Demo\bin\Debug\Demo.exe
+C:\dev\Teaching\Fall 2016\CS-421\Demo\bin\Debug\Demo.pdb
+C:\dev\Teaching\Fall 2016\CS-421\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache

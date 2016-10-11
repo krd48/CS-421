@@ -65,7 +65,7 @@ namespace Demo
 
         public int G(int n)
         {
-            return base.G() + this.G(2);
+            return base.G() + this.G() + n;
         }
 
         public override string ToString()
@@ -78,10 +78,25 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            // Demo 1
+            Console.WriteLine("Demo 1:\n");
+
             var a = new Bar();          // Foo, Bar
             Console.WriteLine(a.F());   // Pants
             Console.WriteLine(a.G());   // 4
 
+
+            // Demo 2
+            Console.WriteLine("\n\nDemo 2:\n");
+
+            var b = new Bar();       
+            Console.WriteLine(b.F());   
+            Console.WriteLine(b.G());
+            Console.WriteLine(b.G(3));
+
+
+            // Demo 3
+            Console.WriteLine("\n\nDemo 1:\n");
 
             var list = new List<object>();
             list.Add(new Foo("Bits"));

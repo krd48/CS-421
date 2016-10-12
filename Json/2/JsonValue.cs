@@ -1,173 +1,181 @@
+using System;
+using System.Collections.Generic;
 
-public enum JType
+namespace Json
 {
-    Null,
-    Bool,
-    Number,
-    String,
-    Array,
-    Object,
-}
-
-public class JValue
-{
-    public JType Type { get; private set; }
-    private JsonValue Value { get; set; }
-
-
-    public JValue()
+    public enum JType
     {
-        Type = JType.Null; 
-    } 
-
-    public JValue(bool value)
-    {
-        Type = JType.Bool;
-        Value = new JsonBool { Value = value };
-    }
-    
-    public JValue(double value)
-    {
-        Type = JType.Number;
-        Value = new JsonNumber { Value = value };
+        Null,
+        Bool,
+        Number,
+        String,
+        Array,
+        Object,
     }
 
-    public JValue(string value)
+    public class JValue
     {
-        Type = JType.String;
-        Value = new JsonString { Value = value };
-    }
+        public JType Type { get; private set; }
+        private JsonValue Value { get; set; }
 
-    public JValue(List<JsonValue> values)
-    {
-        Type = JType.Array;
-        Value = new JsonArray {Values = values};
-    }
 
-    public JValue(Dictionary<string, JsonValue> values)
-    {
-        Type = JType.Object;
-        Value = new JsonObject {Values = values};
-    }
-
-    public bool Null 
-    {
-        get { return Type == JType.Null; }
-        set { Type = JType.Null; Value = null; }
-    }
-
-    public bool Bool 
-    {
-        get 
+        public JValue()
         {
-            if (Type != JType.Bool) throw new CastException();
-            return ((JsonBool)Value).Value;
+            Type = JType.Null;
         }
-        set 
+
+        public JValue(bool value)
         {
             Type = JType.Bool;
             Value = new JsonBool { Value = value };
         }
-    }
 
-    public double Number 
-    {
-        get 
-        {
-            if (Type != JType.Number) throw new CastException();
-            return ((JsonNumber)Value).Value;
-        }
-        set 
+        public JValue(double value)
         {
             Type = JType.Number;
-            Value = new JsonNumer { Value = value };
+            Value = new JsonNumber { Value = value };
         }
-    }
-    
-    public string String 
-    {
-        get 
-        {
-            if (Type != JType.String) throw new CastException();
-            return ((JsonString)Value).Value;
-        }
-    }
 
-    public List<JValue> Array 
-    {
-        get 
+        public JValue(string value)
         {
-            if (Type != JType.Array) throw new CastException();
-            return ((JsonArray)Value).Values;
+            Type = JType.String;
+            Value = new JsonString { Value = value };
         }
-        set 
+
+        public JValue(List<JValue> values)
         {
             Type = JType.Array;
-            Value = new JsonValue { Values = value; }
+            Value = new JsonArray { Values = values };
         }
-    }
 
-    public Dictionary<string, JValue> Object 
-    {
-        get 
-        {
-            if (Type != JType.Object) throw new CastException();
-            return ((JsonObject)Value).Values;
-        }
-        set 
+        public JValue(Dictionary<string, JValue> values)
         {
             Type = JType.Object;
-            Value = new JsonObject { Values = value; }
+            Value = new JsonObject { Values = values };
         }
+
+        public bool Null
+        {
+            get { return Type == JType.Null; }
+            set { Type = JType.Null; Value = null; }
+        }
+
+        public bool Bool
+        {
+            get
+            {
+                if (Type != JType.Bool) throw new InvalidCastException();
+                return ((JsonBool)Value).Value;
+            }
+            set
+            {
+                Type = JType.Bool;
+                Value = new JsonBool { Value = value };
+            }
+        }
+
+        public double Number
+        {
+            get
+            {
+                if (Type != JType.Number) throw new InvalidCastException();
+                return ((JsonNumber)Value).Value;
+            }
+            set
+            {
+                Type = JType.Number;
+                Value = new JsonNumber { Value = value };
+            }
+        }
+
+        public string String
+        {
+            get
+            {
+                if (Type != JType.String) throw new InvalidCastException();
+                return ((JsonString)Value).Value;
+            }
+        }
+
+        public List<JValue> Array
+        {
+            get
+            {
+                if (Type != JType.Array) throw new InvalidCastException();
+                return ((JsonArray)Value).Values;
+            }
+            set
+            {
+                Type = JType.Array;
+                Value = new JsonArray { Values = value };
+            }
+        }
+
+        public Dictionary<string, JValue> Object
+        {
+            get
+            {
+                if (Type != JType.Object) throw new InvalidCastException();
+                return ((JsonObject)Value).Values;
+            }
+            set
+            {
+                Type = JType.Object;
+                Value = new JsonObject { Values = value };
+            }
+        }
+
+
+        public JValue this[string key]
+        {
+            get { return Object[key]; }
+            set { Object[key] = value; }
+        }
+
+        public int Count
+        {
+            get { return Array.Count; }
+        }
+
+        public JValue this[int index]
+        {
+            get { return Array[index]; }
+            set { Array[index] = value; }
+        }
+
     }
 
-    public JValue this[string key]
+
+
+    internal class JsonValue
     {
-        get { return Object[key]; }
-        set { return Object[key] = value; }
     }
-    
-    public int Count 
+
+    internal class JsonBool : JsonValue
     {
-        get { return Array.Count; }
+        public bool Value;
     }
 
-    public JValue this[int index]
+    internal class JsonNumber : JsonValue
     {
-        get { return Array[index]; }
-        set { Array[index] = value; }
+        public double Value;
     }
 
+    internal class JsonString : JsonValue
+    {
+        public string Value;
+    }
+
+    internal class JsonArray : JsonValue
+    {
+        public List<JValue> Values;
+    }
+
+    internal class JsonObject : JsonValue
+    {
+        public Dictionary<string, JValue> Values;
+    }
+
+
+
 }
-
-
-
-private class JsonValue
-{
-}
-
-private class JsonBool : JsonValue
-{
-    public bool Value;
-}
-
-private class JsonNumber : JsonValue
-{
-    public double Value;
-}
-
-private class JsonString : JsonValue
-{
-    public string Value;
-}
-
-private class JsonArray : JsonValue
-{
-    public List<JValue> Values;
-}
-
-private class JsonObject : JsonValue
-{
-    public Dicionary<string, JValue> : Values;
-}
-

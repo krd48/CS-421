@@ -20,3 +20,12 @@ it into the JValue class with the other JsonValue derivatives and provide the sa
 overrides of ToString.  The JsonBlob should output base-64 encoded text, which
 can be achieved using the System.Convert.ToBase64Sting() method.
 
+
+Homework 3 (Due ?)
+==========
+
+Implement the InsertGameCommand and UpdateGameCommand class in the 
+[Baseball project here](https://github.com/tosutton/CS-421/tree/master/Json/2). 
+
+Add transaction support to the database by implementing the Begin/Commit/Rollback Commands in the same project.
+

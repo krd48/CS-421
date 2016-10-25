@@ -25,7 +25,7 @@ Homework 3 (Due ?)
 ==========
 
 Implement the InsertGameCommand and UpdateGameCommand class in the 
-[Baseball project here](https://github.com/tosutton/CS-421/tree/master/Json/2). 
+[Baseball project here](https://github.com/tosutton/CS-421/tree/master/Command/Baseball). 
 
 Add transaction support to the database by implementing the Begin/Commit/Rollback Commands in the same project.
-
+This can be accomplished similarly to the [Undo/Redo logic in the DocumentEx class here](https://github.com/tosutton/CS-421/tree/master/Command/Command2). 

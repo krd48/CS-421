@@ -34,9 +34,15 @@ namespace Baseball
             var db = new Database();
 
             var cmd = ParseArgs(args);
-            DatabaseCommand.FromCommand(cmd);
-
-           
+            if (cmd.Verb == "select")
+            {
+                var dbFlt = Filter.FromCommand(cmd);
+            }
+            else
+            {
+                var dbCmd = DatabaseCommand.FromCommand(cmd);
+                dbCmd.Execute(db);
+            }
         }
 
         private static Command ParseArgs(string[] args)

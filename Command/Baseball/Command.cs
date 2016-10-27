@@ -14,7 +14,7 @@ namespace Baseball
             switch (cmd.Verb.ToLower())
             {
                 case "insert":
-                    switch (cmd.Collection)
+                    switch (cmd.Collection.ToLower())
                     {
                         case "park": return new InsertParkCommand { ParkId = cmd.Args["ParkId"] };
                         case "team": return new InsertTeamCommand { TeamId = cmd.Args["TeamId"], League = cmd.Args["League"] };

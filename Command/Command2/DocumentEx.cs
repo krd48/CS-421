@@ -9,33 +9,43 @@ namespace Command2
     public class DocumentEx
     {
         public IList<Command> Commands { get; private set; }
+        private int Position {get;set;}
 
         public DocumentEx()
         {
              Commands = new List<Command>();
+             Position = 0;
         }
 
         public void Append(string line)
         {
-            Commands.Add(new AppendCommand { Line = line });
+            Commands.Insert(Position, new AppendCommand { Line = line });
+            // Commands.Add(new AppendCommand { Line = line });
+            Position++;
         }
 
         public void Insert(int pos, string line)
         {
-            Commands.Add(new InsertCommand { Position = pos, Line = line });
+            Commands.Insert(Position, new InsertCommand { Position = pos, Line = line });
+            //Commands.Add(new InsertCommand { Position = pos, Line = line });
+            Position++;
         }
 
         public void Erase(int pos)
         {
-            Commands.Add(new EraseCommand { Position = pos });
+            Commands.Insert(Position, new EraseCommand { Position = pos });            
+            //Commands.Add(new EraseCommand { Position = pos });
+            Position++;
         }
 
         public void Undo()
         {
+            Position--;
         }
 
         public void Redo()
         {
+            Position++;
         }
 
         public override string ToString()

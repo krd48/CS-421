@@ -21,44 +21,44 @@ namespace Command1
             Player = new Player();
             Enemy = new BadGuy();
 
+            // while (!GameOver)
+            // {
+            //     if (Input.Left)
+            //     {
+            //         Player.Move(-1);
+            //     }
+            //     if (Input.Right)
+            //     {
+            //         Player.Move(1);
+            //     }
+            //     if (Input.Up)
+            //     {
+            //         Player.Jump();
+            //     }
+            //     if (Input.ButtonDown)
+            //     {
+            //         Player.Attack(1);
+            //     }
+
+            //     // TODO: What about enemy?
+            // }
+
+
+
             while (!GameOver)
             {
-                if (Input.Left)
-                {
-                    Player.Move(-1);
-                }
-                if (Input.Right)
-                {
-                    Player.Move(1);
-                }
-                if (Input.Up)
-                {
-                    Player.Jump();
-                }
-                if (Input.ButtonDown)
-                {
-                    Player.Attack(1);
-                }
+               // Handle the player input
+               foreach (var command in Input.GetCommands())
+               {
+                   command.Execute(Player);
+               }
 
-                // TODO: What about enemy?
+               // Then the enemy reponds.
+               foreach (var command in Enemy.AI.GetCommands(Player))
+               {
+                   command.Execute(Enemy);
+               }
             }
-
-
-
-            //while (!GameOver)
-            //{
-            //    // Handle the player input
-            //    foreach (var command in Input.GetCommands())
-            //    {
-            //        command.Execute(Player);
-            //    }
-
-            //    // Then the enemy reponds.
-            //    foreach (var command in Enemy.AI.GetCommands(Player))
-            //    {
-            //        command.Execute(Enemy);
-            //    }
-            //}
 
 
         }
